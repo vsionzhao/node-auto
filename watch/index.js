@@ -11,13 +11,15 @@ const watcher = chokidar.watch(watchPath,{
     stabilityThreshold: 2000,
     pollInterval: 100
   },
-  ignored: /(dist)|(node_modules)/
+  // 忽略的文件
+  ignored: eval(`/(${config.BUILD_PATH_NAME})|(node_modules)/`)
 });
 
 const executeFnDeb = debounce(execute, config.WATCH_WAIT);
 
 // 监听文件事件
 watcher.on('all',(event, path)=>{
+  console.log(`event: ${event}   path: ${path}`);
   executeFnDeb(event, path);
 });
 

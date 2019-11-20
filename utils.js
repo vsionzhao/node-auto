@@ -8,8 +8,9 @@ function execFn(common) {
         log('red',error);
         reject({error});
       }
-      log('green',stdout);
-      log('green',stderr);
+      console.log(stdout);
+      console.log(stderr);
+
       resolve({stdout, stderr});
     })
   })
