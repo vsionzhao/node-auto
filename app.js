@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const global = require('./global/index');
+const global = require('./global');
 const watcher = require('./watch');
 
 // var indexRouter = require('./routes/index');
