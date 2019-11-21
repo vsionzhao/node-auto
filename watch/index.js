@@ -12,7 +12,7 @@ const watcher = chokidar.watch(watchPath,{
     pollInterval: 100
   },
   // 忽略的文件
-  ignored: eval(`/(${config.BUILD_PATH_NAME})|(node_modules)/`),
+  ignored: [eval(`/${config.BUILD_PATH_NAME}/`),  /yarn.lock|node_modules|package-lock.json/],
   ignoreInitial: true,
   cwd: '.', // 表示当前目录
 });

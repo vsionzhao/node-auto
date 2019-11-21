@@ -1,12 +1,19 @@
 const config = require('../config');
 const utils  = require('../utils');
 async function execute(event, path) {
-  const buildDir = resolve(`${config.WATCH_PATH}`);
-  const rmFile = resolve(`${config.WATCH_PATH}/${config.BUILD_PATH_NAME}`);
+  const buildDir = config.WATCH_PATH;
+  const rmFile = `${config.WATCH_PATH}/${config.BUILD_PATH_NAME}`;
+  try {
+    process.chdir(`${buildDir}`); // 更改执行环境，
+    log('green',`new directory: ${process.cwd()}`);
+  } catch (err) {
+    log('yellow',` ${err}, or in the current dir`);
+  }
+
   const commons = [
     `rm -rf ${rmFile}`,
-    `cd ${buildDir} && npm install`,
-    `cd ${buildDir} && npm run build`,
+    `yarn install`,
+    `npm run build`,
     `cp -R ${rmFile}/* /home/web`,
   ];
 
