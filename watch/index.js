@@ -12,7 +12,8 @@ const watcher = chokidar.watch(watchPath,{
     pollInterval: 100
   },
   // 忽略的文件
-  ignored: eval(`/(${config.BUILD_PATH_NAME})|(node_modules)/`)
+  ignored: eval(`/(${config.BUILD_PATH_NAME})|(node_modules)/`),
+  ignoreInitial: true,
 });
 
 const executeFnDeb = debounce(execute, config.WATCH_WAIT);
