@@ -1,0 +1,11 @@
+{
+  "commons": [
+    "echo --- Install dependent ---",
+    "yarn install",
+    "echo --- start build project ---",
+    "npm run build",
+    "echo --- start scp transmission ---",
+    "scp -r dist/* root@122.51.231.67:/home/web",
+    "echo --- deploy success ---"
+  ]
+}

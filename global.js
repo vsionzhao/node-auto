@@ -35,9 +35,11 @@ global.log = (key, obj) => {
   } else {
     console.log(styles[key][0] + '%s' + styles[key][1], obj)
   }
-}
+};
+
 global.resolve = (dir)=> {
   return path.join(__dirname, dir);
 };
+
 
 global.watchPath = config.WATCH_PATH_TYPE ? config.WATCH_PATH : resolve(config.WATCH_PATH);
