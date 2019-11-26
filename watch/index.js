@@ -12,12 +12,14 @@ const watcher = chokidar.watch(watchPath,{
     pollInterval: 100
   },
   // 忽略的文件
-  ignored: /yarn.lock|node_modules|package-lock.json|build|dist/,
+  ignored: /yarn.lock|node_modules|package-lock.json|build|dist|\.pem|autoConf.json/,
   ignoreInitial: true,
   cwd: '.', // 表示当前目录
 });
 
 const executeFnDeb = debounce(execute, config.WATCH_WAIT);
+
+execute();
 
 // 监听文件事件
 watcher.on('all',(event, path)=>{

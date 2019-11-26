@@ -5,7 +5,10 @@
     "echo --- start build project ---",
     "npm run build",
     "echo --- start scp transmission ---",
-    "scp -r dist/* root@122.51.231.67:/home/web",
+    "cat ${PRIVATE_KEY} > authentication.pem",
+    "chmod 600 authentication.pem",
+    "scp  -o StrictHostKeyChecking=no -i authentication.pem -r dist/* root@122.51.231.67:/home/web",
+    "rm -rf authentication.pem",
     "echo --- deploy success ---"
   ]
 }

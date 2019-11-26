@@ -15,16 +15,9 @@ async function execute(event, path) {
 
   const commons = global.projectConf.commons;
 
-  // const commons = [
-  //   `rm -rf ${rmFile}`,
-  //   `yarn install`,
-  //   `npm run build`,
-  //   // `cp -Rf ${config.BUILD_PATH_NAME}/* /home/web`,
-  // ];
-
   // 不要用有回调的方法去调用await修饰的方法
   for (const common of commons){
-    await utils.execFn(common)
+    await utils.execFn(utils.commonReplaceString(common))
   }
 
   log('green', 'success');
