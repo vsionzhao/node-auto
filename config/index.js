@@ -1,4 +1,3 @@
-const fs = require('fs');
 module.exports = {
   WATCH_WAIT: 10000,  // watch 修改后等待多少秒后执行
   WATCH_PATH: 'www', // watch 路径
