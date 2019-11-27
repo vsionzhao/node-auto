@@ -3,7 +3,7 @@
 
 使用
 ---
-1. 克隆项目代码：
+2. 克隆项目代码：
 ```bash
 git clone git@github.com:zhaorusheng/node-automatic-deployment.git my-project
 cd my-project
