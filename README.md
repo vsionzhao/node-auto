@@ -1,8 +1,7 @@
 # node-auto
 使用node实现项目自动化构建和部署!
 
-使用
----
+## 使用
 1. 克隆项目代码：
 ```bash
 git clone git@github.com:zhaorusheng/node-automatic-deployment.git my-project
@@ -37,6 +36,6 @@ npm run start
 
 8. 建议搭配`pm2`使用
 
-
+## 说明
 * 此项目服务器需要用到scp免密传输(RSA)，如何配置请自行google。
 * 欢迎PR
