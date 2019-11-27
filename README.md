@@ -28,7 +28,7 @@ ssh-keygen -t rsa -C "your.email@example.com" -b 4096
 
 5.查看私钥的文件目录, 修改项目config/index.js中的`REPLACE_STRINGS.PRIVATE_KEY`, 也就是你私钥存放位置
 
-6.打开`config/index`文件，把相应配置修改。
+6.打开`config/index`文件，修改相应配置。
 
 7.启动本地服务
 ```bash
