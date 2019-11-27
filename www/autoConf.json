@@ -1,14 +1,20 @@
 {
   "commons": [
+    "echo --- Replace string ---",
+    "echo s/___TEST_STRING___/${TEST_STRING}/g > pattern.sed ",
+    "find .  \\( -path \"./dist\" -o -path \"./node_modules\" \\)   -prune -o -type f   \\( -iname \"*.js\" -o -iname \"*.html\" -o -iname \"*.vue\" \\)  -print  -exec sed -i -f pattern.sed {} \\;",
+    "rm -rf pattern.sed",
+    "echo Replace success",
     "echo --- Install dependent ---",
     "yarn install",
-    "echo --- start build project ---",
+    "echo --- Start build project ---",
     "npm run build",
-    "echo --- start scp transmission ---",
-    "cat ${PRIVATE_KEY} > authentication.pem",
+    "echo --- Get primary key ---",
+    "cat ${PRIVATE_KEY} > ${PRIVATE_KEY_FILE_NAME}",
     "chmod 600 authentication.pem",
-    "scp  -o StrictHostKeyChecking=no -i authentication.pem -r dist/* root@122.51.231.67:/home/web",
-    "rm -rf authentication.pem",
-    "echo --- deploy success ---"
+    "echo --- Start use scp upload files ---",
+    "scp  -o StrictHostKeyChecking=no -i ${PRIVATE_KEY_FILE_NAME} -r dist/* ${SERVICE_USER}@${SERVICE_IP}:${SERVICE_PROJECT_PATH}",
+    "rm -rf ${PRIVATE_KEY_FILE_NAME}",
+    "echo --- Deploy success ---"
   ]
 }

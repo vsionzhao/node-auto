@@ -6,7 +6,7 @@ const getProjectConf = (path)=>{
     fs.readFile(path,(err, data)=>{
       let conf = {};
       if (err){
-        log('yellow', `${path}/${config.PROJECT_CONF_NAME} file not find, use default conf`);
+        log('yellow', `${path} file not find, use default conf`);
       }else {
         conf = JSON.parse(data);
       }

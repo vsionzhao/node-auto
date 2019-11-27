@@ -1,8 +1,8 @@
 const {exec}  = require('child_process');
-const config = require('./config');
+const config = require('./config/index.js');
 function execFn(common, options) {
   return new Promise((resolve, reject)=>{
-    // log('green', `exec common: ${common}`);
+    log('green', `exec common: ${common}`);
     exec(common, options, (error, stdout, stderr)=>{
       if (error) {
         log('red', error);
@@ -17,14 +17,18 @@ function execFn(common, options) {
 }
 
 function commonReplaceString(common){
-  const match = common.match(/\$\{(\S*)\}/g);
+  const match = common.match(/\$\{([^]+?)\}/g);
   if (match){
     match.forEach(o=>{
       const current = o.replace(/\${|\}/g, '');
-      const val  = config.REPLACE_STRINGS[current];
-      if (val){
-        o.replace(current,config.REPLACE_STRINGS[current]);
-        common = common.replace(o,config.REPLACE_STRINGS[current]);
+      try {
+        const val  = config.REPLACE_STRINGS[current];
+        if (val){
+          o.replace(current,config.REPLACE_STRINGS[current]);
+          common = common.replace(o,config.REPLACE_STRINGS[current]);
+        }
+      }catch (e) {
+        console.log(e);
       }
     })
   }
