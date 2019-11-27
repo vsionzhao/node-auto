@@ -1,4 +1,4 @@
-# node-automatic-deployment
+# node-auto
 使用node实现项目自动化构建和部署!
 
 使用
