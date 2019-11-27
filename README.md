@@ -39,3 +39,4 @@ npm run start
 
 
 * 此项目服务器需要用到scp免密传输(RSA)，如何配置请自行google。
+* 欢迎PR
