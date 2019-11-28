@@ -12,8 +12,8 @@ const watcher = chokidar.watch(watchPath,{
     pollInterval: 100
   },
   // 忽略的文件
-  ignored: /yarn.lock|node_modules|package-lock.json|build|dist|\.pem|autoConf.json|\.sed/,
-  ignoreInitial: true,
+  ignored: /node_modules|build|dist|\.pem|\.sed/,
+  ignoreInitial: true, // 初始化不执行文件事件
   cwd: '.', // 表示当前目录
 });
 

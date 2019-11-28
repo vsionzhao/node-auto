@@ -17,7 +17,7 @@ async function execute(event, path) {
 
    const commons = global.projectConf.commons;
 
-   // 不要用有回调的方法去调用await修饰的方法
+   // 不要用forEach 配合await执行命令，这样执行顺序不会如你所愿
    for (const common of commons){
      await utils.execFn(utils.commonReplaceString(common))
    }
