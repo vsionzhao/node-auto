@@ -11,7 +11,7 @@
     "npm run build",
     "echo --- Get primary key ---",
     "cat ${PRIVATE_KEY} > ${PRIVATE_KEY_FILE_NAME}",
-    "chmod 600 authentication.pem",
+    "chmod 600 ${PRIVATE_KEY_FILE_NAME}",
     "echo --- Start use scp upload files ---",
     "scp  -o StrictHostKeyChecking=no -i ${PRIVATE_KEY_FILE_NAME} -r dist/* ${SERVICE_USER}@${SERVICE_IP}:${SERVICE_PROJECT_PATH}",
     "rm -rf ${PRIVATE_KEY_FILE_NAME}",
